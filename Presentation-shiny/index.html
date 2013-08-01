@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>R + Shiny</title>
+  <meta charset="utf-8">
+  <meta name="description" content="R + Shiny">
+  <meta name="author" content="@ArthurFlam">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+    <link rel="stylesheet" href = "libraries/widgets/bootstrap/css/bootstrap.css">
+<link rel="stylesheet" href = "libraries/widgets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href = "assets/css/ribbons.css">
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+    <!-- END LOGO SLIDE -->
+    
+
+    <!-- TITLE SLIDE -->
+    <!-- Should I move this to a Local Layout File? -->
+    <slide class="title-slide segue nobackground">
+      <hgroup class="auto-fadein">
+        <h1>R + Shiny</h1>
+        <h2>Applications web avec R</h2>
+        <p>@ArthurFlam<br/>Quantmetry</p>
+      </hgroup>
+          </slide>
+
+    <!-- SLIDES -->
+      <slide class="" id="me" style="background:;">
+  <hgroup>
+    <h2>Qui suis-je ?</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>Centrale Paris + UPMC en maths / bio-informatique</li>
+<li>Profil &quot;Data science&quot;</li>
+<li><a href="mailto:arthur.flam@gmail.com">arthur.flam@gmail.com</a></li>
+<li>@ArthurFlam
+<p> </p></li>
+</ul>
+
+<h2>Quantmetry</h2>
+
+<ul>
+<li>Conseil en statistiques</li>
+<li>Clients : Bouygues, Octo consulting, IFA (des engrais..!)</li>
+<li>Nous cherchons des stagiaires pour septembre !</li>
+<li><a href="http://www.quantmetry.com">www.quantmetry.com</a></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="plan" style="background:;">
+  <hgroup>
+    <h2>Plan</h2>
+  </hgroup>
+  <article>
+    <ol>
+<li>Introduction</li>
+<li>Démonstration</li>
+<li>Intégration JS/HTML5/CSS</li>
+<li>Hébergement</li>
+</ol>
+
+<div style="padding-top:200px"> </div>
+
+<div class="alert alert-info"> <p>Cette présentation est disponible sur</p>
+<p><a href="https://github.com/arthur-flam/ShinyOverview">https://github.com/arthur-flam/ShinyOverview</a></p></div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-3" style="background:lightgrey;">
+  <hgroup>
+    <h2>1. Introduction</h2>
+  </hgroup>
+  <article>
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Les statistiques c&#39;est raconter une histoire</h2>
+  </hgroup>
+  <article>
+    <iframe width="420" height="315" src="http://www.youtube.com/embed/hVimVzgtD6w" frameborder="0" allowfullscreen></iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="shiny" style="background:;">
+  <hgroup>
+    <h2>Shiny : un framework web avec R.</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>Rendre R <strong>interactif</strong></li>
+<li><strong>Partager</strong> votre travail (aux non spécialistes !)</li>
+<li>Faire du <strong>prototypage</strong> rapide</li>
+<li>Combler vos lacunes en <strong>applications web</strong></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-6" style="background:lightgrey;">
+  <hgroup>
+    <h2>2. Démonstration</h2>
+  </hgroup>
+  <article>
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="result" style="background:;">
+  <hgroup>
+    <h3>Ce qu&#39;on peut obtenir</h3>
+  </hgroup>
+  <article>
+    <pre><code>install.packages(&quot;shiny&quot;)
+library(shiny)
+runGitHub(&quot;ShinyOverview&quot;, &quot;arthur-flam&quot;, subdir=&quot;Exemple1&quot;)
+</code></pre>
+
+<iframe src="http://temp.quantmetry.com:3838/Exemple1/" width="100%"> Un premier exemple </iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="gears" style="background:;">
+  <hgroup>
+    <h2>Deux fichiers suffisent à définir l&#39;application</h2>
+  </hgroup>
+  <article>
+    
+<div style='float:left;width:48%;' class='centered'>
+  <p><strong>Côté client : <code>ui.R</code></strong></p>
+
+<ul>
+<li>Gère le HTML, CSS, JS...</li>
+<li>Gère les inputs</li>
+</ul>
+
+
+</div>
+<div style='float:right;width:48%;'>
+  <p><strong>Côté serveur : <code>server.R</code></strong></p>
+
+<ul>
+<li>Calculs R</li>
+<li>Gère les outputs</li>
+</ul>
+
+<!---<p> </p>
+<em class="muted">Sous le capot c'est du `node.js` avec des Websockets</em>
+<em class="muted">Concept de fonctions réactives qui s'adaptent aux inputs</em>
+-->
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="E1-uiR" style="background:;">
+  <hgroup>
+    
+  </hgroup>
+  <article>
+    <p><img src="../Exemple1/code.png" width=100%>Code (from RStudio&#39;s tutorial)</img></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-10" style="background:lightgrey;">
+  <hgroup>
+    <h2>3. Intégration HTML/JS/CSS...</h2>
+  </hgroup>
+  <article>
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-11" style="background:;">
+  <hgroup>
+    <h2>Avec GoogleVis</h2>
+  </hgroup>
+  <article>
+    <iframe src="http://temp.quantmetry.com:3838/Exemple2" width=100% height=60%>Hotels</iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-12" style="background:;">
+  <hgroup>
+    <h2>D&#39;autres librairies sont utilisables</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>Le package <code>rCharts</code> donne accès aux librairies <code>d3.js</code></li>
+<li>Le CSS de base est <code>Bootstrap</code>, mais tout est modifiable</li>
+<li>Tout est possible : autocomplétion, accès à des APIs...</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-13" style="background:;">
+  <hgroup>
+    <h2>Exemple : NVD3</h2>
+  </hgroup>
+  <article>
+    <iframe src="http://temp.quantmetry.com:3838/Exemple3" width=60% height=100%>nvd3</iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-14" style="background:lightgrey;">
+  <hgroup>
+    <h2>4. Hébergement</h2>
+  </hgroup>
+  <article>
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="hosting" style="background:;">
+  <hgroup>
+    <h1>Hébergement</h1>
+  </hgroup>
+  <article>
+    <ul>
+<li>En local : <code>runApp(&quot;/MyApp&quot;)</code></li>
+<li>Hébergement chez les créateurs de <code>RStudio</code> (simple, encore limité)</li>
+<li>Avec <code>shiny-server</code> (<a href="https://github.com/rstudio/shiny-server">https://github.com/rstudio/shiny-server</a>) 
+<div style="padding-top:100px"></div>
+Il est possible d&#39;intégrer une application shiny dans une <code>iframe</code> </li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+      <slide class="" id="slide-16" style="background:;">
+  <hgroup>
+    <h2>Merci !</h2>
+  </hgroup>
+  <article>
+    <ul>
+<li>Thanks to the RStudio team for <code>shiny</code> and their examples</li>
+<li>Thanks to Ramnath Vaidyanathan for bringing us <code>rCharts</code>. I borrowed his examples.</li>
+<li>Thanks to Markus Gesmann, Diego de Castillo, who created R+GoogleVis. I used one of their examples. Note : they <em>also</em> used Hans Rosling&#39;s video in their last presentation. 
+<div style="padding-top:250px"></div>
+<div class="alert alert-success">
+Toute la présentation a été réalisée avec le package R <code>slidify</code>
+</div></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+
+  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+<!-- Grab CDN jQuery, fall back to local if offline -->
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+<script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery-1.7.min.js"><\/script>')</script>
+<!-- Load Javascripts for Widgets -->
+<script src='libraries/widgets/bootstrap/js/bootstrap.min.js'></script>
+<script>  
+$(function (){ 
+  $("#example").popover(); 
+  $("[rel='tooltip']").tooltip(); 
+});  
+</script>  
+<!-- LOAD HIGHLIGHTER JS FILES -->
+<script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- DONE LOADING HIGHLIGHTER JS FILES -->
+</html>
